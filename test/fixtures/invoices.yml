@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: MyString
+  due_date: 2023-04-10 17:10:10
+  status: MyString
+  paid_on: 2023-04-10 17:10:10
+  client: one
+
+two:
+  amount: MyString
+  due_date: 2023-04-10 17:10:10
+  status: MyString
+  paid_on: 2023-04-10 17:10:10
+  client: two

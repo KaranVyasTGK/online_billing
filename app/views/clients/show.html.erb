@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+<%= link_to '< Back', clients_path %>
+
+<div class="card" style="width: 25rem;">
+  <%= image_tag Faker::LoremFlickr.image, class: "card-img-top", alt:"..." %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @client.name %></h5>
+    <p class="card-text"><%= @client.address %></p>
+    <p><%= link_to "Edit this client", edit_client_path(@client) %> | <%= link_to "Back to clients", clients_path %> </p>
+    <p><%= button_to "Destroy this client", @client, method: :delete, class: "btn btn-link" %></p>
+  </div>
+</div>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <th>Invoice ID</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>Due Date</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <% if @client.invoices.present? %>
+        <% @client.invoices.each do |invoice| %>
+          <tr>
+            <td><%= invoice.id %></td>
+            <td><%= invoice.amount %></td>
+            <td><%= invoice.status %></td>
+            <td><%= invoice.due_date.strftime("%d %b %Y") %></td>
+            <td><%= link_to 'Show Invoice details', invoice_path(invoice)%></td>
+          </tr>
+        <% end %>
+      <% else %>
+          <tr><td colspan="4">No Data</td></tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
